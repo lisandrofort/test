@@ -1,4 +1,4 @@
-import peliculas from "./peliculas.json" with {type:"json"};
+import {filtrarPorAño,filtrarPorGenero,filtrarPorNombre} from "./filtro.js"; 
 
 function main(){
     let param = process.argv.slice(2);
@@ -10,20 +10,14 @@ function main(){
         console.log(pelicula);
     }
     if (filtro === "nombre") {
-        param[0]
+        let pelicula = filtrarPorNombre(valor);
+        console.log(pelicula);
     }
     if (filtro === "año") {
-        console.log("busca por año");
+        let pelicula = filtrarPorAño(valor);
+        console.log(pelicula);
     }
-    console.log("fin de los ifs");
 }
 
 main();
-
-function filtrarPorGenero(valor) {
-    return peliculas.filter((pelicula)=>{
-        return (pelicula.genero.toLowerCase() === valor.toLowerCase());
-    })
-}
-
 
